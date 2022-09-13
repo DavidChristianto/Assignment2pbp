@@ -4,6 +4,38 @@ Platform-Based Programming (CSGE602022) - Organized by the Faculty of Computer S
 
 *Read this in other languages: [Indonesian](README.md), [English](README.en.md)*
 
+# Assignment 2 Question
+
+#### 1. Create a diagram containing client request to the Django web application and its response. Also explain the flow of the diagram and how the urls.py, views.py, models.py and HTML files connected each other.
+#### Answer: 
+   The diagram below show the relation between user and Django platform using Model-View-Template(MVT)
+   #### HTTP Request -----> URLS (urls.py)
+   ####                          |
+   ####                          |
+   ####                          V
+   #### Model (models.py) <---> View(views.py) ---> HTTP Response (HTML)
+   ####                          ^
+   ####                          |
+   ####                          |
+   ####                        Template (.html)
+   
+   Django MVT architecture consist of 3 parts: 
+   1. M (Model)      : the data access layer
+   2. T (Template)   : the presentation layer
+   3. V (View)       : the business logic layer, the bridge between models and templates.
+   
+   The explaination about the diagram
+   1. The user sends a request to the Django platform.
+   2. urls.py sends a request object to views.py and processed as a function call.
+   3. if the request involves a database, then the view component, i.e. view.py will request the required data from the model component, i.e. model.py,         which data will be returned to views.py and will be displayed as webpage.
+   4. If not involving database, views.py will retrieve the HTML template which will be displayed as a webpage.
+   5. The next step, the data from views.py will be transferred to the template
+   6. Then, the response will be processed and generated in the form of HTML webpage
+   
+#### Explain why do we use virtual environments? Let's say, if we do not use the virtual environments, can we still create a Django web application?
+
+#### Explain how did you implement the steps on point 1 to point 4 above.
+
 ## Introduction
 
 This repository is a template that is designed to help students who take the Platform-Based Development/Programming Course (CSGE602022) to know the structure of a Django Web application project, including the files and configurations that are important in running the application. You can freely copy the contents of this repository or utilise this repository as a learning material and also as a starting code to build a Django Web application project.
