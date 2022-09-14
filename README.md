@@ -33,6 +33,9 @@ Platform-Based Programming (CSGE602022) - Organized by the Faculty of Computer S
    6. Then, the response will be processed and generated in the form of HTML webpage
    
 #### Explain why do we use virtual environments? Let's say, if we do not use the virtual environments, can we still create a Django web application?
+#### Answer:
+   In my opinion, the answer to the question if we do not use the virtual environments, can we still create a Django web application? is possible, but it    is still recommended to use virtual environments in creating Django web applications. if we don't use it, it will most likely cause a crash if we do      the wrong installation of the required package. virtual environment there is a tool that allows us to separate the projects that we create into their      own isolated scope. To put it another way, virtual environments aid in dependency management by isolating projects from one another. This virtual          environment is typically used when we have multiple projects or create a new project to ensure that the version of a library used in one project does      not change if we update the same library in another project. In other words, when you update a system dependency, some of your projects that rely on      that dependency may no longer be relevant to the newer version, resulting in errors.
+
 
 #### Explain how did you implement the steps on point 1 to point 4 above.
 
