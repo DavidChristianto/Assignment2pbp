@@ -30,7 +30,11 @@ Platform-Based Programming (CSGE602022) - Organized by the Faculty of Computer S
 
 
 #### Explain how did you implement the steps on point 1 to point 4 above.
-
+#### Answer:
+   1. In the first point, the function created in views.py serves to accept the request object as an argument, this function is also responsible for             creating a dictionary that contains a Queryset(from model.py) that will return the render function (render()). This render function has 3 arguments,       namely the request object as the first argument, HTML template as the second argument and the dictionary as the third argument(this dictionary will       contain the items contained in the json file).
+   2. url.py will map the path to the appropriate function in views.py because view.py will return the render function. The render() function is                 responsible for mapping to databases and HTML files.
+   3. The data returned to views.py will be used as arguments to the render function. This render function outputs an HttpResponse object
+   4. What is done in deploying to Heroku is to create a new app first, then also create a Procfile, dpl.yml, and .gitignore, then do configurations in         settings.py. then the next step is to add the API key and name that is on Heroku to github by creating a secrets repository. then the last thing is       to re-run all jobs on the action menu on github and wait until the deployment is complete
 ## Introduction
 
 This repository is a template that is designed to help students who take the Platform-Based Development/Programming Course (CSGE602022) to know the structure of a Django Web application project, including the files and configurations that are important in running the application. You can freely copy the contents of this repository or utilise this repository as a learning material and also as a starting code to build a Django Web application project.
