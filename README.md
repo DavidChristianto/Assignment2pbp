@@ -8,16 +8,8 @@ Platform-Based Programming (CSGE602022) - Organized by the Faculty of Computer S
 
 #### 1. Create a diagram containing client request to the Django web application and its response. Also explain the flow of the diagram and how the urls.py, views.py, models.py and HTML files connected each other.
 #### Answer: 
-   The diagram below show the relation between user and Django platform using Model-View-Template(MVT)
-   #### HTTP Request -----> URLS (urls.py)
-   ####                          |
-   ####                          |
-   ####                          V
-   #### Model (models.py) <---> View(views.py) ---> HTTP Response (HTML)
-   ####                          ^
-   ####                          |
-   ####                          |
-   ####                        Template (.html)
+<img width="784" alt="Screen Shot 2022-09-14 at 14 45 17" src="https://user-images.githubusercontent.com/88826287/190093495-ab803c6e-0a2d-4e0d-a75b-6c5e8c9e0286.png">
+
    
    Django MVT architecture consist of 3 parts: 
    1. M (Model)      : the data access layer
