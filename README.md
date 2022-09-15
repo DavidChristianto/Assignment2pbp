@@ -4,6 +4,8 @@ Platform-Based Programming (CSGE602022) - Organized by the Faculty of Computer S
 
 *Read this in other languages: [Indonesian](README.md), [English](README.en.md)*
 
+[Hyperlink] https://assignment2pbp.herokuapp.com/katalog/
+
 # Assignment 2 Question
 
 #### 1. Create a diagram containing client request to the Django web application and its response. Also explain the flow of the diagram and how the urls.py, views.py, models.py and HTML files connected each other.
