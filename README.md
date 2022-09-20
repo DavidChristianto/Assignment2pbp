@@ -132,3 +132,5 @@ This template was based on [PBP Odd Term 2021/2022](https://gitlab.com/PBP-2021/
 [Tutorial 0]: https://pbp-fasilkom-ui.github.io/ganjil-2023/en/assignments/tutorial/tutorial-0
 [Visual Studio Code]: https://code.visualstudio.com/
 [PyCharm]: https://www.jetbrains.com/pycharm/
+
+
