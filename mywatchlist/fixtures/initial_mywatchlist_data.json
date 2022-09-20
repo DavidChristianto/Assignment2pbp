@@ -1,0 +1,108 @@
+[
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 1,
+        "fields": {
+            "watched": "YES",
+            "title": "Bang Jono",
+            "rating": "7",
+            "release_date": "17 Sept 2021",
+            "review": "The movie was amazing"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 2,
+        "fields": {
+            "watched": "NO",
+            "title": "Captain Mongolia",
+            "rating": 0,
+            "release_date": "29 Jan 2018",
+            "review": "-"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 3,
+        "fields": {
+            "watched": "NO",
+            "title": "Ibuku adalah istrimu",
+            "rating": 0,
+            "release_date": "19 April 2017",
+            "review": "-"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 4,
+        "fields": {
+            "watched": "NO",
+            "title": "Tukang Bubur Naik Tangga",
+            "rating": 0,
+            "release_date": "30 March 2016",
+            "review": "-"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 5,
+        "fields": {
+            "watched": "YES",
+            "title": "Satria Baja Ringan",
+            "rating": 7,
+            "release_date": "29 Feb 2020",
+            "review": "Magnificent, amazing"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 6,
+        "fields": {
+            "watched": "NO",
+            "title": "King of The Universe",
+            "rating": 0,
+            "release_date": "12 Sept 2021",
+            "review": "-"
+        }
+    },{
+        "model": "mywatchlist.mywatchlist",
+        "pk": 7,
+        "fields": {
+            "watched": "YES",
+            "title": "Aku adalah ultramen",
+            "rating": 9,
+            "release_date": "26 May 2017",
+            "review": "The film was very good, after watch this film, my dream is becoming ultramen"
+        }
+    },{
+        "model": "mywatchlist.mywatchlist",
+        "pk": 8,
+        "fields": {
+            "watched": "NO",
+            "title": "Bajaj Dedeng Onta",
+            "rating": 0,
+            "release_date": "2 Jun 2014",
+            "review": "-"
+        }
+    },{
+        "model": "mywatchlist.mywatchlist",
+        "pk": 9,
+        "fields": {
+            "watched": "YES",
+            "title": "BAng Toyib",
+            "rating": 7,
+            "release_date": "15 Des 2019",
+            "review": "Bang Toyib is the most inspiring person that I know"
+        }
+    },{
+        "model": "mywatchlist.mywatchlist",
+        "pk": 10,
+        "fields": {
+            "watched": "YES",
+            "title": "Mamah Aku Pulang",
+            "rating": 9,
+            "release_date": "18 Sept 2022",
+            "review": "The main character is very handsome"
+        }
+    }
+]
