@@ -5,6 +5,7 @@ Platform-Based Programming (CSGE602022) - Organized by the Faculty of Computer S
 *Read this in other languages: [Indonesian](README.md), [English](README.en.md)*
 
 [Hyperlink] https://assignment2pbp.herokuapp.com/katalog/
+[Hyperlink] https://assignment2pbp.herokuapp.com/mywatchlist/
 
 # Assignment 2 Question
 
