@@ -17,7 +17,7 @@ def show_mywatchlist(request):
 
     context = {
         'list_item': data_watchlist_item,
-        'name': 'By David Christianto',
+        'name': 'David Christianto',
         'npm': '2106720866',
         'watch_message': message,
     }
