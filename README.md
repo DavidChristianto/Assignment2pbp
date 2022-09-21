@@ -70,10 +70,10 @@ So the conclusion is that with data delivery, an application or platform that is
 1. First of all run "python manage.py startapp mywatchlist" on the terminal (on the directory of my local repository) to create a new app. 
 2. write "urls.py" to the application to add the mywatchlist URL path, so it can be accessed via http://localhost:8000/mywatchlist or by running the command python3 manage.py runserver on the local terminal.
 3. Add class item "mywatchlist" in the models.py, with 5 attributes: watched, title, rating, release date, and review.
-4.Make initial_mywatch_data.json file inside of a folder "fixtures" that contain data for that webpage, which are 10 movies.
-5.Added multiple functions in "views.py" that allowed the data to be represented via XML, HTML, and JSON. The functions also be added in the 'urlpatterns' list found in "urls.py"
-6.after that, edit the Procfile so it would migrate the models and load the data(JSON file) when it deployed. 
-7.lastly, pushed the local repository onto GitHub(add, commit, push), and it automatically deployed in Heroku.
+4. Make initial_mywatch_data.json file inside of a folder "fixtures" that contain data for that webpage, which are 10 movies.
+5. Added multiple functions in "views.py" that allowed the data to be represented via XML, HTML, and JSON. The functions also be added in the 'urlpatterns' list found in "urls.py"
+6. After that, edit the Procfile so it would migrate the models and load the data(JSON file) when it deployed. 
+7. Lastly, pushed the local repository onto GitHub(add, commit, push), and it automatically deployed in Heroku.
 
 ## Introduction
 
