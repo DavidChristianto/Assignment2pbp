@@ -98,7 +98,7 @@
         "model": "mywatchlist.mywatchlist",
         "pk": 10,
         "fields": {
-            "watched": "YES",
+            "watched": "NO",
             "title": "Mamah Aku Pulang",
             "rating": 9,
             "release_date": "18 Sept 2022",
