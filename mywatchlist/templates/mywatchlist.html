@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<title> Watch List </title>
 <style>
     tr:nth-child(odd) {background-color: lightslategray;}
+    tr:nth-child(even) {background-color: goldenrod;}
     th {
   background-color: firebrick;
   padding-bottom: 14px;
@@ -13,6 +15,7 @@
 }
     h5,p{
         font-family: 'Times New Roman', Times, serif;
+        color: navy
     }
     h1{
         color: midnightblue;
@@ -22,6 +25,10 @@
         color: black;
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
     }
+    table{
+      border:1px solid black;
+      border-collapse: collapse;
+    }
 </style>
 
 
@@ -29,7 +36,7 @@
     <h5>Name: </h5>
     <p>{{name}}</p>
     <h5>Student ID: </h5>
-    <p>{{student_id}}</p>
+    <p>{{npm}}</p>
 
 
 <table >
