@@ -38,7 +38,43 @@ Platform-Based Programming (CSGE602022) - Organized by the Faculty of Computer S
    1. In the first point, the function created in views.py serves to accept the request object as an argument, this function is also responsible for             creating a dictionary that contains a Queryset(from model.py) that will return the render function (render()). This render function has 3 arguments,       namely the request object as the first argument, HTML template as the second argument and the dictionary as the third argument(this dictionary will       contain the items contained in the json file).
    2. url.py will map the path to the appropriate function in views.py because view.py will return the render function. The render() function is                 responsible for mapping to databases and HTML files.
    3. The data returned to views.py will be used as arguments to the render function. This render function outputs an HttpResponse object
-   4. What is done in deploying to Heroku is to create a new app first, then also create a Procfile, dpl.yml, and .gitignore, then do configurations in         settings.py. then the next step is to add the API key and name that is on Heroku to github by creating a secrets repository. then the last thing is       to re-run all jobs on the action menu on github and wait until the deployment is complete
+   4. What is done in deploying to Heroku is to create a new app first, then also create a Procfile, dpl.yml, and .gitignore, then do configurations in       settings.py. then the next step is to add the API key and name that is on Heroku to github by creating a secrets repository. then the last thing         is to re-run all jobs on the action menu on github and wait until the deployment is complete
+
+# ============================== Assignment 3 ==============================
+# Postman Sreenshots
+1. XML URL using postman
+![postman1](https://user-images.githubusercontent.com/88826287/191458815-e06e51b5-953a-4ea9-9267-45d590bc14a7.jpg)
+
+2. JSON URL using postman 
+![postman2](https://user-images.githubusercontent.com/88826287/191458956-15641d16-e77e-4e25-9320-230a3f8c337d.jpg)
+
+3. HTML URL using postman
+![postman3](https://user-images.githubusercontent.com/88826287/191459873-76d80075-79da-4b5c-b554-ce03b3acf77a.jpg)
+
+# Assignment 3 Question
+## 1. Explain the difference between JSON, XML, and HTML!
+The difference between HTML, XML, and JSON can be seen from 3 things, namely the content, the structure used, and the formatting. The first attempt to combine these editing problems into a single process was the development of GML in the 1960s by IBM employees. The way GML tries to solve this problem is to wrap the tag around the content that contains the instructions in it to define the structure and formatting of the content inside the tag. These tags will also have the ability to be nested (tags within tags) to have more control over the content. But as more and more people get involved and use SGML (the standard version of GML), this makes GML even more difficult to use. This mimics html development, where the HTML will wrap the content in tags. However the rules regarding which tags can be used when and where are much stricter, which can affect the structure of the information within them. Because of these structural problems, XML was developed. XML will try to address this issue head-on by maintaining all the strict rules of SGML, therefore preserving the structure of the information (just like a database), without worrying about formatting at all (this is left to HTML to handle). This will also address another issue which is an increase in the amount of content available. XML will be the format for sending and receiving the records and HTML will be responsible for formatting and displaying the records that are called. JSON (JavaScript Object Notation) is a lightweight and completely language-independent data exchange format. It is based on the JavaScript programming language and is easy to understand and generate.
+
+so, the conclusion about the difference between HTML and XML and JSON is: 
+1. HTML is responsible for displaying and formatting data, whereas XML and JSON is responsible for sending and receiving data.
+2. JSON is JavaScript Object Notation, whereas XML is Extensible markup language
+3. JSON is based on JavaScript language, whereas XML is derived from SGML
+4. JSON does not support namespaces, but support array. Whreas XML support namespaces, but does not support array.
+
+## 2. Explain why we need the data delivery in implementing a platform.
+The concept of data delivery is sending data from one location to another using methods and formatting. In this era of digitization, most of them have databases that can accommodate very large amounts and sizes of data. With this situation, data delivery becomes very important, especially in implementing the platform, because only when the user requests the required data, then the application will retrieve the requested data from the database (not all data) and present it to the user. So this will reduce the storage load that will burden the system device.
+
+So the conclusion is that with data delivery, an application or platform that is used does not need to store data on itself so that it does not burden the storage system
+
+## 3. Explain how you can implement the checklists above.
+1. First of all run "python manage.py startapp mywatchlist" on the terminal (on the directory of my local repository) to create a new app. 
+2. write "urls.py" to the application to add the mywatchlist URL path, so it can be accessed via http://localhost:8000/mywatchlist or by running the command python3 manage.py runserver on the local terminal.
+3. Add class item "mywatchlist" in the models.py, with 5 attributes: watched, title, rating, release date, and review.
+4.Make initial_mywatch_data.json file inside of a folder "fixtures" that contain data for that webpage, which are 10 movies.
+5.Added multiple functions in "views.py" that allowed the data to be represented via XML, HTML, and JSON. The functions also be added in the 'urlpatterns' list found in "urls.py"
+6.after that, edit the Procfile so it would migrate the models and load the data(JSON file) when it deployed. 
+7.lastly, pushed the local repository onto GitHub(add, commit, push), and it automatically deployed in Heroku.
+
 ## Introduction
 
 This repository is a template that is designed to help students who take the Platform-Based Development/Programming Course (CSGE602022) to know the structure of a Django Web application project, including the files and configurations that are important in running the application. You can freely copy the contents of this repository or utilise this repository as a learning material and also as a starting code to build a Django Web application project.
