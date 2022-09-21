@@ -2,24 +2,29 @@
 
 {% block content %}
 <style>
-    tr:nth-child(even) {background-color: #bbbbbb;}
+    tr:nth-child(odd) {background-color: lightslategray;}
     th {
-  background-color: #060c80;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  background-color: firebrick;
+  padding-bottom: 14px;
+  padding-top: 10px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-align: middle;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
+  color: tan
 }
+    h5,p{
+        font-family: 'Times New Roman', Times, serif;
+    }
+    h1{
+        color: midnightblue;
+        font-family: 'Times New Roman', Times, serif;
+    }
     td{
         color: black;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-    h1,h5,p{
-        text-align: center;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
     }
 </style>
+
+
     <h1>Assignment 3 PBP/PBD</h1>
     <h5>Name: </h5>
     <p>{{name}}</p>
