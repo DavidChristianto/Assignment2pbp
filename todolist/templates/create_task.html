@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>More Task</h3>
+<form method="post">
+    {% csrf_token %}
+
+    <table>
+        <tr>
+            <td>Title: </td>
+            <td><input type="text" class="form-control" placeholder="Fill todo" name="title"></td>
+        </tr>
+                
+        <tr>
+            <td>Description: </td>
+            <td><input type="text" class="form-control" placeholder="fill description" name="description"></td>
+        </tr>
+    </table>
+
+    <br>
+    <button type="submit">Create Task</button>
+    <button><a href="{% url 'todolist:show_todolist' %}">Cancel</a></button>
+</form>
+
+{% endblock %}

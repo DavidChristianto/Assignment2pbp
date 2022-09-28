@@ -4,6 +4,6 @@ from django.urls import path
 
 app_name = 'katalog'
 
-urlpatterns = [
+urlpatterns = [ # sbg path
     path('', show_katalog, name='show_katalog'),
 ]

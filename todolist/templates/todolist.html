@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+ {% block content %}
+  <style>
+    td, table, th {
+      background-color: slategray;
+      border-collapse: collapse;
+      border: 5px solid black;
+    }
+  </style>
+
+  <h1>Todolist</h1>
+
+  <h2>Hai {{name_of_user}}</h2>
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Status Of The Task</th>
+      <th>Action</th>
+    </tr>
+      {% for task in todolist_item %}
+      <tr>
+          <td>{{task.date}}</td>
+          <td>{{task.title}}</td>
+          <td>{{task.description}}</td>
+          <td>{% if task.is_finished %} Finished {% else %} Unfinished {% endif %}</td>
+          <th>
+            <button><a href="{% url 'todolist:update_task_status' task.id %}" title="">{% if task.is_finished %} Set Finish {% else %} Set Unfinish {% endif %}</a></button>
+            <button><a href="{% url 'todolist:remove_task' task.id %}" title="">Remove Task</a></button>
+          </th>
+          {% endfor %}
+      </tr>
+  </table>
+<br>
+<button><a href="{% url 'todolist:create_task' %}">Add Task</a></button>
+<button><a href="{% url 'todolist:logout' %}">Logout</a></button>
+
+{% endblock content %}
