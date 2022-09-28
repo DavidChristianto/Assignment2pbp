@@ -75,6 +75,32 @@ So the conclusion is that with data delivery, an application or platform that is
 6. After that, edit the Procfile so it would migrate the models and load the data(JSON file) when it deployed. 
 7. Lastly, pushed the local repository onto GitHub(add, commit, push), and it automatically deployed in Heroku.
 
+# ========================= ASSIGNMENT 4 =========================
+## QUESTION 1 : What does {% csrf_token %} do in the <form> element? What happens if there is no such "code snippet" in the <form> element?
+#ANSWER:
+CSRF stands for Cross-Site Request Forgery which is also often referred to as XSRF, or adversarial linking. CSRF itself is an attack that makes internet users unknowingly send a request to the website through the website app that is being used. So the CSRF code token used on the form is a token that is used to prevent CSRF attacks, where usually attacks that occur will harm and hijack user sessions. The simple mechanism of this CSRF token is
+make this token as "Key" which will be matched between request from user and current session, if match will be accepted and if not match will be rejected. Therefore, in the Django platform we can generate this CSRF token using the get_token() function to encode the real CSRF token so that it cannot be seen by other sites or websites. then what will happen if you don't use this token? Generally Django will raise a 403 (CSRF verification failed) error because this is the default in settings.py which will be automatically activated, besides if you don't have this token, CSRF attacks can easily occur when unauthorized users fake requests and gain access from authorized users.
+ 
+##QUESTION 2 : Can we create the <form> element manually (without using a generator like {{ form.as_table }})? Explain generally how to create <form> manually.
+#ANSWER:
+in my opinion it is possible to create form elements manually. the simple mechanism is that we can use a form tag and wrap the temporary input (it also contains the URL it points to). Then close the form tag.
+   
+##QUESTION 3 : Describe the data flow process from the submission made by the user through the HTML form, data storage in the database, until the appearance of the data that has been stored in the HTML template.
+
+##ANSWER: 
+The user makes a request which will be read in urls.py, then views.py will run the create_task function to create and save the data. After that the process will be directed to the show_todolist function where the new data that the user just created is already in the database so that the render function can use the new data and provide a response in the form of output in the form of html to the user.
+   
+##QUESTION 4 : Explain how you implement the checklist above.
+#ANSWER:
+1. First of all run "python manage.py startapp todolist" on the terminal (on the directory of my local repository) to create a new app. 
+2. write "urls.py" to the application to add the todolist URL path, so it can be accessed via http://localhost:8000/mywatchlist or by running the command python3 manage.py runserver on the local terminal.
+3. Add class item "Task" in the models.py, with 5 attributes: user, date, title, description, is_finish
+4. Make login.html, register.html, todolist.html, and create_task.html
+5. Added multiple functions in "views.py" (login_user, logout_user, create_task, update_task_status, remove_task) The functions also be added in the 'urlpatterns' list found in "urls.py"
+6. After that, edit the Procfile so it would migrate the models and load the data(JSON file) when it deployed. 
+7. Lastly, run command python3 manage.py makemigrations and migrate, also pushed the local repository onto GitHub(add, commit, push), and it automatically deployed in Heroku.
+
+
 ## Introduction
 
 This repository is a template that is designed to help students who take the Platform-Based Development/Programming Course (CSGE602022) to know the structure of a Django Web application project, including the files and configurations that are important in running the application. You can freely copy the contents of this repository or utilise this repository as a learning material and also as a starting code to build a Django Web application project.
