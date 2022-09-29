@@ -1,15 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.core import serializers
-from todolist.models import Task
-from django.shortcuts import redirect
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib import messages
-from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 import datetime
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
+from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect
+from todolist.models import Task
+from django.shortcuts import redirect
 from django.urls import reverse
 @login_required(login_url='/todolist/login/')
 
@@ -41,6 +41,7 @@ def show_xml_by_id(request,id):
     data = Task.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
 
+@login_required(login_url="/todolist/login/")
 def register(request):
     form = UserCreationForm()
 
@@ -53,6 +54,7 @@ def register(request):
     
     context = {'form':form}
     return render(request, 'register.html', context)
+
 
 def login_user(request):
     if request.method == 'POST':
@@ -69,6 +71,7 @@ def login_user(request):
     context = {}
     return render(request, 'login.html', context)
 
+@login_required(login_url="/todolist/login/")
 def logout_user(request):
     logout(request)
     response = HttpResponseRedirect(reverse('todolist:login'))

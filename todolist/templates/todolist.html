@@ -9,7 +9,7 @@
     }
   </style>
 
-  <h1>Todolist</h1>
+  <h1> ===== Todolist ===== </h1>
 
   <h2>Hai {{name_of_user}}</h2>
   <table>
@@ -33,6 +33,7 @@
           {% endfor %}
       </tr>
   </table>
+  <h5>Last Login: {{ last_login }}</h5>
 <br>
 <button><a href="{% url 'todolist:create_task' %}">Add Task</a></button>
 <button><a href="{% url 'todolist:logout' %}">Logout</a></button>

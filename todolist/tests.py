@@ -1,3 +1,8 @@
-from django.test import TestCase
+from django.test import TestCase, Client
+from django.urls import resolve
 
-# Create your tests here.
+
+class ContohAppTest(TestCase):
+    def test_html_url_exist(self):
+        response = Client().get('/todolist/')
+        self.assertEqual(response.status_code,200)
