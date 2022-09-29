@@ -41,7 +41,7 @@ def show_xml_by_id(request,id):
     data = Task.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
 
-@login_required(login_url="/todolist/login/")
+
 def register(request):
     form = UserCreationForm()
 

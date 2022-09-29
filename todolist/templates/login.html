@@ -6,7 +6,7 @@
 
 {% block content %}
 
-<div class = "login">
+<!-- <div class = "login">
 
     <h1>Login</h1>
 
@@ -40,6 +40,117 @@
         
     Do you not have an account?? <a href="{% url 'todolist:register' %}">Create New YourAccount</a>
 
-</div>
+</div> -->
 
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar { 
+  width: 20%;
+  border-radius: 25%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+h2{
+    margin: auto;
+    width: 19%;
+    border: 10px white;
+    padding: 20px;
+}
+b{
+    text-align: center;
+}
+
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 70px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<h2>Welcome And Login</h2>
+
+<form method="POST" action="">
+    {% csrf_token %}
+    <img  src="https://pbs.twimg.com/profile_images/1365477618162622465/K41coY5q_400x400.jpg" alt="Avatar" class="avatar" >
+  </div>
+
+  <div class="container">
+    <label style="text-align: center;" for="uname"><b>Username</b></label>
+    <input type="text" name="username" placeholder="Username" class="form-control">
+    <label for="psw"><b>Password</b></label>
+    <input type="password" name="password" placeholder="Password" class="form-control">
+        
+    <button><input type="submit" value="Login"></button>
+  </div>
+
+</form>
+
+{% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}     
+Do you not have an account?? <a href="{% url 'todolist:register' %}">Create New YourAccount</a>
+</body>
+</html>
 {% endblock content %}
