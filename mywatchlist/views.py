@@ -4,13 +4,16 @@ from django.http import HttpResponse
 from django.core import serializers
 
 # Create your views here.
+
 def show_mywatchlist(request):
-    data_watchlist_item = mywatchlist.objects.all()
+    data_watchlist_item = mywatchlist.objects.all() #.object.filter(watched = "NO")
     counter = 0
     for x in data_watchlist_item:
         if("YES" == x.watched):
             counter += 1
-    if(counter>4):
+        elif("NO" == x.watched):
+            counter -= 1
+    if(counter>= 0):
         message = "Congratulations, you have watched movies a lot!"
     else:
         message = "Woah, you have not much watched movies!"

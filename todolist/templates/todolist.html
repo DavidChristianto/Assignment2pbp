@@ -1,41 +1,209 @@
 {% extends 'base.html' %}
 
  {% block content %}
-  <style>
-    td, table, th {
+    <head>
+ 
+ <link rel="preconnect" href="https://fonts.gstatic.com">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+ <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+ <!--Stylesheet-->
+ <style media="screen">
+   *,
+*:before,
+*:after{
+ padding: 0;
+ margin: 0;
+ box-sizing: border-box;
+}
+span.psw {
+float: right;
+padding-top: 16px;
+}
+body{
+ background-color: #080710;
+}
+.background{
+ width: 430px;
+ height: 520px;
+ position: absolute;
+ transform: translate(-50%,-50%);
+ left: 50%;
+ top: 50%;
+}
+.background .shape{
+ height: 200px;
+ width: 200px;
+ position: absolute;
+ border-radius: 50%;
+}
+.shape:first-child{
+ background: linear-gradient(
+     #1845ad,
+     #23a2f6
+ );
+ left: -80px;
+ top: -80px;
+}
+.shape:last-child{
+ background: linear-gradient(
+     to right,
+     #ff512f,
+     #f09819
+ );
+ right: -30px;
+ bottom: -80px;
+}
+
+    th {
       background-color: slategray;
       border-collapse: collapse;
       border: 5px solid black;
     }
-  </style>
-  <body style="background-image: url(https://images2.alphacoders.com/564/thumb-1920-564835.jpg);"></body>
-  <h1> ===== Todolist ===== </h1>
+    
+h1 {
+  color: whitesmoke;
+}
+body {
+  min-height: 100vh;
+  background: black;
+}
 
-  <h2>Hai {{name_of_user}}</h2>
-  <table>
-    <tr>
-      <th>Date</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Status Of The Task</th>
-      <th>Action</th>
-    </tr>
-      {% for task in todolist_item %}
-      <tr>
-          <td>{{task.date}}</td>
-          <td>{{task.title}}</td>
-          <td>{{task.description}}</td>
-          <td>{% if task.is_finished %} Finished {% else %} Unfinished {% endif %}</td>
-          <th>
-            <button><a href="{% url 'todolist:update_task_status' task.id %}" title="">{% if task.is_finished %} Set Finish {% else %} Set Unfinish {% endif %}</a></button>
-            <button><a href="{% url 'todolist:remove_task' task.id %}" title="">Remove Task</a></button>
-          </th>
-          {% endfor %}
-      </tr>
-  </table>
-  <h5>Last Login: {{ last_login }}</h5>
+body .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 40px 0;
+}
+
+body .container .card {
+  position: relative;
+  min-width: 320px;
+  height: 440px;
+  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
+    inset -5px -5px 15px rgba(255, 255, 255, 0.1),
+    5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  margin: 30px;
+  transition: 0.5s;
+}
+
+body .container .card .box {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  background: #2a2b2f;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 40px rgba(8,7,16,0.6);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+body .container .card .box:hover {
+  transform: translateY(-50px);
+}
+
+
+body .container .card .box .content {
+  padding: 20px;
+  text-align: center;
+}
+
+body .container .card .box .content h2 {
+  position: absolute;
+  top: -10px;
+  right: 30px;
+  font-size: 8rem;
+  color: rgba(255, 255, 255, 0.1);
+}
+
+
+body .container .card .box .content p {
+  font-size: 1rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+  z-index: 1;
+  transition: 0.5s;
+}
+
+body .container .card .box .content a {
+  position: relative;
+  display: inline-block;
+  padding: 8px 20px;
+  background: black;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  margin-top: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: 0.5s;
+}
+
+</style>
+
+</head>
+   <div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+</div>
+<nav class="navbar  navbar-expand navbar-dark bg-dark py-2">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0" >
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'todolist:show_todolist' %}">HOME</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'todolist:create_task' %}">Add Task</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'todolist:logout' %}">Logout</a>
+        </li>
+      </ul>
+    </div>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav" >
+        <li class="nav-item" >
+          <h3 class="navbar-text"> Hai {{name_of_user}} </h3>
+        </li>
+      </ul>
+    </div>
+    <span class="navbar-text">
+    </span>
+  </div>
+</nav>
+  <div class="container">
+    {% for task in todolist_item %}
+    <div class="card">
+      <div class="box">
+        <div class="content">
+          <h2>{{task.date}}</h2>
+          <h1>{{task.title}}</h1>
+          <p>{{task.description}}</p>
+          <a href="{% url 'todolist:remove_task' task.id %}" title="">Remove Task</a>
+          <p>{% if task.is_finished %} Finished {% else %} Unfinished {% endif %}</p>
+          <a href="{% url 'todolist:update_task_status' task.id %}" title="">{% if task.is_finished %} ✅ {% else %} ❌ {% endif %}</a>
+          <p>Last Login: {{ last_login }} </p>
+
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    
+
 <br>
-<button><a href="{% url 'todolist:create_task' %}">Add Task</a></button>
-<button><a href="{% url 'todolist:logout' %}">Logout</a></button>
+
 
 {% endblock content %}
