@@ -73,6 +73,20 @@ form{
     box-shadow: 0 0 40px rgba(8,7,16,0.6);
     padding: 50px 35px;
 }
+@media screen and (max-height: 400px){
+  form{
+    height: 480px;
+    width: 370px;
+    background-color: white;
+  
+    
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+}
+}
 form *{
     font-family: 'Poppins',sans-serif;
     color: #ffffff;
@@ -85,6 +99,10 @@ form h3{
     font-weight: 500;
     line-height: 42px;
     text-align: center;
+    color: slategray;
+}
+.white{
+    color: #080710;
 }
 
 label{
@@ -92,6 +110,7 @@ label{
     margin-top: 30px;
     font-size: 16px;
     font-weight: 500;
+    
 }
 input{
     display: block;
@@ -140,7 +159,9 @@ button{
 .social i{
   margin-right: 4px;
 }
-
+.white b{
+    color: slategray;
+}
     </style>
   
 </head>
@@ -152,7 +173,6 @@ button{
 
     <nav class="navbar  navbar-expand navbar-dark bg-dark py-2">
         <div class="container-fluid">
-          <a class="navbar-brand mb-0 h1" href="{% url 'todolist:show_todolist' %}"><img src="https://www.iconsdb.com/icons/preview/white/checkmark-xxl.png" width="15" height="16"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -178,17 +198,18 @@ button{
                 <h3  style="text-align: center;">Registration Form</h3>
                 <table>
                     <tr>  
-                    <label style="text-align: center;" for="uname"><b>Username</b></label>
+                    <div class="white">
+                    <label style="text-align: center;"for="uname"><b>Username</b></label>
                     <input oninvalid="alert('Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.')" type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username" autofocus="" required="" id="id_username">
                     
-
                     <label style="text-align: center;" for="uname"><b>Password</b></label>
                     <input oninvalid="alert('1.Your password can’t be too similar to your other personal information\n 2.Your password must contain at least 8 characters\n 3.Your password can’t be a commonly used password\n 4. Your password can’t be entirely numeric.')" type="password" name="password1" autocomplete="new-password" required="" id="id_password1"> 
-
+                    
                     <label style="text-align: center;" for="uname"><b>Password Verification</b></label>
                     <input oninvalid="alert('Enter the same password as before, for verification.')" type="password" name="password2" autocomplete="new-password" required="" id="id_password2">
-
+                    
                     <input type="submit" name="submit" value="Register">
+                </div>
                           
                     </tr>  
                 </table>  

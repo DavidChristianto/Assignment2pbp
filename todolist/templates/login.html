@@ -169,7 +169,6 @@ button{
     </div>
     <nav class="navbar  navbar-expand navbar-dark bg-dark py-2">
       <div class="container-fluid">
-        <a class="navbar-brand mb-0 h1" href="{% url 'todolist:show_todolist' %}"><img src="https://www.iconsdb.com/icons/preview/white/checkmark-xxl.png" width="20" height="20"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -184,6 +183,8 @@ button{
         </span>
       </div>
     </nav>
+  
+  
     <form method="POST" action="">
       {% csrf_token %}
 
