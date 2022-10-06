@@ -104,6 +104,46 @@ The user makes a request which will be read in urls.py, then views.py will run t
 6. After that, edit the Procfile so it would migrate the models and load the data(JSON file) when it deployed. 
 7. Lastly, run command python3 manage.py makemigrations and migrate, also pushed the local repository onto GitHub(add, commit, push), and it automatically deployed in Heroku.
 
+# ========================= ASSIGNMENT 5 =========================
+## 1. What is the difference between Inline, Internal, and External CSS? What are the advantages and disadvantages of each style?
+
+## Answer:
+Internal, Inline CSS, and External are methods of applying CSS, categorized by the location of the CSS code. Inline is located inside the HTML tag, Internal in the HTML file (using the style tag), and External Css using a separate file. The main difference between Inline CSS and external CSS is that separate Inline CSS is faster as it only requires the browser to download 1 file whereas external CSS will require downloading the HTML and CSS files separately.Inline styling is a styling method where we immediately insert the style we want into a specific HTML element in its tag. whereas internal involves style tags where we will insert our styles into style tags without having to insert them into each HTML tag individually. And the external method is where we will create our styles outside of our html file and in other CSS files. 
+
+The inline CSS method can be used when we don't have access to an external CSS File or when we just want to apply styles to an element. The internal CSS method aims to style as desired on a single HTML page, but it is slower than the inline CSS method. In this method you can also select class and ID, especially you don't need to upload many files because the CSS code is automatically embedded in the HTML file. However, adding the style tag causes the HTML size to increase and makes the page load slow. Finally, an external CSS method that can be used in managing multi-page applications (1 CSS file is used by many pages). This external method can easily add the same rule to multiple files which is very useful as many html files can be linked which saves a lot of time in making changes. However with the external CSS method, it allows slower loading as the page may not load properly until the external CSS is downloaded.
+
+## 2.Describe the HTML5 tags that you know!
+
+## Answer:
+a. head: section of HTML for insert references to other files
+b. title: title of page visible on the app
+c. body: main content of the HTML
+d. hyperlink: clickable reference to other pages
+e. table: a modifiable table
+f. br: Makes a one line break
+g. input: asks user for input of various kinds
+h. button: Creates a clickable button.
+i. style: Specifies style using inline method
+j. form: used to collect user input and pass into other applications
+k. div: divide the page into sections that are very easy to shape
+
+## 3. Describe the types of CSS selectors you know.
+
+## Answer:
+Universal selector: selects all elements
+class: targets elements by class name
+type: targets elements by its HTML tag type
+ID selector, Selects elements based on the element's id attribute
+
+## 4. Explain how you would implement the checklist above!
+
+## Answer:
+1. First I add bootstrap into my todolist app (base.html)
+2. Then search references on internet for my style html page
+3. Edit my html code
+4. Adding navbar to my page
+5. Create card in my todolist.html
+6. Used media queries to implement responsiveness onto login.html
 
 ## Introduction
 
