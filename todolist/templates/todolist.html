@@ -63,6 +63,9 @@ body{
 h1 {
   color: whitesmoke;
 }
+h2 {
+  color: whitesmoke;
+}
 body {
   min-height: 100vh;
   background: black;
@@ -184,43 +187,90 @@ body .container .card .box .content a {
     </span>
   </div>
 </nav>
+
+
   <div class="container" id = "abc"> </div>
-    
+  
+  <button data-bs-toggle="modal" data-bs-target="#modal" style="width:20%; padding:2%;" >
+    <h5 class="h5" style="color: black; text-align: center;">Create New Task</h5></button>
+  
+  <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog rounded-10">
+      <div class="modal-content bg-dark">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" style="color: white;">Create a New Task!</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="form" method="POST" action="">
+            {% csrf_token %}
+          <table><tr><td>
+            <div class="form-outline form-white mb-4">
+              <input class="form-control" type="text" name="task_title" maxlength="70" required="" id="id_task_title" placeholder="Task Title!">
+            </div></td></tr>
+          
+            <tr><td><div class="form-outline form-white mb-4">
+              <textarea placeholder="Description of your task!" name="task_description" cols="50" rows="5" required="" class="form-control form-control-lg" id="id_task_description" spellcheck="false" ></textarea>
+            </div></td></tr>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button data-bs-dismiss="modal" type="button" class="btn btn-outline-light btn-lg px-5" type="submit" value="Create!" id="create">Create!</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <br>
 
 <script>
   $(document).ready(() => {
-       const url = "{% url 'todolist:show_json' %}"
-       $.get(url, (data) => {
+    var user_id = '{{ id_of_user }}';
+    
+    $.ajax({
+      url: "{% url 'todolist:show_json' %}", 
+      method: 'GET',
+      dataType: 'json',
+      success: function(data) {
         var html_string = ""
            data.forEach((item) => {
+             if (item.fields.user != user_id) {
+              return;
+             }
             html_string += `\n<div class="card">
             <div class="box">
               <div class="content">
-                <h2>${item.fields.date}</h2>
+                <p>${item.fields.date}</p>
                 <h1>${item.fields.title}</h1>
                 <p>${item.fields.description}</p>
-                <a href="{% url 'todolist:remove_task' {{item.fields.id}} %}" title="">Remove Task</a>
-                <p>{% if {{item.fields.is_finished}} %} Finished {% else %} Unfinished {% endif %}</p>
-                <a href="{% url 'todolist:update_task_status' {{item.fields.id}} %}" title="">{% if {{item.fields.is_finished}} %} ✅ {% else %} ❌ {% endif %}</a>
+                <p>Task Finish Status: ${item.fields.is_finished}</p>
+                <a href="remove-task/`+ item.pk + `" title="">Remove Task</a>
+                <a href="update-task-status/`+ item.pk + `" title="">Update Task</a>
               </div>
               </div>
           </div>`
            })
         var container= document.getElementById("abc");
         container.innerHTML = html_string
-        console.log(html_string)
-       });
-       
+      }
+    }) 
    });
+
+   $("#create").on('click', function(e) {  
+      e.preventDefault()
+      $.post("{% url 'todolist:add' %}",
+        {
+          title: $('#id_task_title').val(),
+          description: $('#id_task_description').val(),
+          csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+        },
+        function(data, status){
+          window.location.reload();
+        }
+      );
+    })
  </script>
 {% endblock content %}
 
-                <!-- var item_name = item.fields.date;
-                var item_price = item.fields.title;
-                var item_description = item.fields.description;
-                var html = "<tr><th>" + item_name + "</th>" +
-                           "<th>" + item_price + "</th>" +
-                           "<th>" + item_description + "</th></tr>";
-        $("tbody").append(html); -->

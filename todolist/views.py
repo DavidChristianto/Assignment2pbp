@@ -15,9 +15,9 @@ from django.urls import reverse
 
 # Create your views here.
 def show_todolist(request):
-    # data_todolist_item = Task.objects.filter(user=request.user)
     context = {
         'name_of_user': request.user,
+        'id_of_user': request.user.id,
         'last_login': request.COOKIES['last_login'],
     }
     return render(request, "todolist.html", context)
@@ -103,3 +103,10 @@ def remove_task(request, selected_id):
     selected_task.delete()
     return answer
 
+@login_required(login_url="/todolist/login/")
+def add(request):
+    if request.method == "POST":
+        Field_title = request.POST.get("title")
+        description = request.POST.get("description")        
+        Task.objects.create(date=datetime.datetime.today(), title= Field_title, description=description, user=request.user)
+    return render(request, "todolist.html")

@@ -8,7 +8,7 @@ from django.urls import path
 from todolist.views import register #customize with the name of the function created
 from todolist.views import login_user #customize with the name of the function created
 from todolist.views import logout_user #customize with the name of the function created
-from todolist.views import create_task, remove_task
+from todolist.views import create_task, remove_task, add
 
 app_name = 'todolist'
 
@@ -24,5 +24,5 @@ urlpatterns = [
     path('create-task/', create_task, name='create_task'),
     path("update-task-status/<int:selected_id>", update_task_status, name="update_task_status"),
     path("remove-task/<int:selected_id>", remove_task, name="remove_task"),
+    path('add/', add, name='add'),
 ]
-
