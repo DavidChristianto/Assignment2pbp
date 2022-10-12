@@ -184,26 +184,43 @@ body .container .card .box .content a {
     </span>
   </div>
 </nav>
-  <div class="container">
-    {% for task in todolist_item %}
-    <div class="card">
-      <div class="box">
-        <div class="content">
-          <h2>{{task.date}}</h2>
-          <h1>{{task.title}}</h1>
-          <p>{{task.description}}</p>
-          <a href="{% url 'todolist:remove_task' task.id %}" title="">Remove Task</a>
-          <p>{% if task.is_finished %} Finished {% else %} Unfinished {% endif %}</p>
-          <a href="{% url 'todolist:update_task_status' task.id %}" title="">{% if task.is_finished %} ✅ {% else %} ❌ {% endif %}</a>
-          <p>Last Login: {{ last_login }} </p>
-
-        </div>
-      </div>
-    </div>
-    {% endfor %}
+  <div class="container" id = "abc"> </div>
     
 
 <br>
 
-
+<script>
+  $(document).ready(() => {
+       const url = "{% url 'todolist:show_json' %}"
+       $.get(url, (data) => {
+        var html_string = ""
+           data.forEach((item) => {
+            html_string += `\n<div class="card">
+            <div class="box">
+              <div class="content">
+                <h2>${item.fields.date}</h2>
+                <h1>${item.fields.title}</h1>
+                <p>${item.fields.description}</p>
+                <a href="{% url 'todolist:remove_task' {{item.fields.id}} %}" title="">Remove Task</a>
+                <p>{% if {{item.fields.is_finished}} %} Finished {% else %} Unfinished {% endif %}</p>
+                <a href="{% url 'todolist:update_task_status' {{item.fields.id}} %}" title="">{% if {{item.fields.is_finished}} %} ✅ {% else %} ❌ {% endif %}</a>
+              </div>
+              </div>
+          </div>`
+           })
+        var container= document.getElementById("abc");
+        container.innerHTML = html_string
+        console.log(html_string)
+       });
+       
+   });
+ </script>
 {% endblock content %}
+
+                <!-- var item_name = item.fields.date;
+                var item_price = item.fields.title;
+                var item_description = item.fields.description;
+                var html = "<tr><th>" + item_name + "</th>" +
+                           "<th>" + item_price + "</th>" +
+                           "<th>" + item_description + "</th></tr>";
+        $("tbody").append(html); -->

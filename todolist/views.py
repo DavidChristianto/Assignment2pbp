@@ -15,9 +15,8 @@ from django.urls import reverse
 
 # Create your views here.
 def show_todolist(request):
-    data_todolist_item = Task.objects.filter(user=request.user)
+    # data_todolist_item = Task.objects.filter(user=request.user)
     context = {
-        'todolist_item': data_todolist_item,
         'name_of_user': request.user,
         'last_login': request.COOKIES['last_login'],
     }
