@@ -257,7 +257,10 @@ body .container .card .box .content a {
       }
     }) 
    });
-
+  
+   $("#modal").on("hidden.bs.modal", function() {
+    $("#modal").find("#form").trigger("reset")
+   })
    $("#create").on('click', function(e) {  
       e.preventDefault()
       $.post("{% url 'todolist:add' %}",
@@ -267,10 +270,39 @@ body .container .card .box .content a {
           csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
         },
         function(data, status){
-          window.location.reload();
+          $.ajax({
+      url: "{% url 'todolist:show_json' %}", 
+      method: 'GET',
+      dataType: 'json',
+      success: function(data) {
+        var html_string = "";
+        var user_id = '{{ id_of_user }}';
+           data.forEach((item) => {
+             if (item.fields.user != user_id) {
+              return;
+             }
+            html_string += `\n<div class="card">
+            <div class="box">
+              <div class="content">
+                <p>${item.fields.date}</p>
+                <h1>${item.fields.title}</h1>
+                <p>${item.fields.description}</p>
+                <p>Task Finish Status: ${item.fields.is_finished}</p>
+                <a href="remove-task/`+ item.pk + `" title="">Remove Task</a>
+                <a href="update-task-status/`+ item.pk + `" title="">Update Task</a>
+              </div>
+              </div>
+          </div>`
+           })
+        var container= document.getElementById("abc");
+        container.innerHTML = html_string
+      }
+    }) 
+   });
+
         }
       );
-    })
+    
  </script>
 {% endblock content %}
 
